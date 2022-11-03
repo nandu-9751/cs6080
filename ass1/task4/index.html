@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            task4
+        </title>
+    </head>
+    <body>
+        <div id="input">
+            <form name="form">
+                <table border="2">
+                    <tr>
+                        <th>First Name</th>
+                        <th><input type="text" name="firstname" oninput="checkFirstName()"></th>
+                    </tr>
+                    <tr>
+                        <th>Last Name</th>
+                        <th><input type="text" name="lastname" oninput="checkLastName()"></th>
+                    </tr>
+                    <tr>
+                        <th>Date of birth</th>
+                        <th><input type="text" name="dob" oninput="checkDOB()"></th>
+                    </tr>
+                    <tr>
+                        <th>Favourite animal</th>
+                        <th>
+                            <select name="cheese" onmousedown="displayAllContent()">
+                                <option value="Haloumi">Haloumi</option>
+                                <option value="Brie">Brie</option>
+                            </select>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Cities lived in</th>
+                        <td>
+                            <span id="city" onclick="displayAllContent()">
+                                <input type="checkbox" name="city" value="Adelaide">Adelaide<br>
+                                <input type="checkbox" name="city" value="Perth">Perth<br>
+                                <input type="checkbox" name="city" value="Hobart">Hobart<br>
+                                <input type="checkbox" name="city" value="Darwin">Darwin<br>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <br><br>
+                <button type="button" onclick="removeAllContent()">Remove</button><br>
+            </form>
+        </div>
+        <div id="output">
+            <form>
+                <textarea id="display" rows="10" cols="34"></textarea>
+            </form>
+        </div>
+
+        <script>
+            /*passed*/
+            function checkFirstName() {
+                var firstname = form.firstname.value
+                var pattern = new RegExp("[a-zA-Z]+")
+                let length = firstname.length
+                if (firstname== "" || !(pattern.test(firstname)) || length < 3 || length > 50) {
+                    document.getElementById("display").innerHTML="Do not enter an invalid firstname"
+                }
+                else {
+                    document.getElementById("display").innerHTML=""
+                }
+            }
+            /*passed*/
+            function checkLastName() {
+                var lastname = form.lastname.value
+                var pattern = new RegExp("[a-zA-Z]+")
+                let length = lastname.length
+                if (lastname== "" || !(pattern.test(lastname)) || length < 3 || length > 50) {
+                    document.getElementById("display").innerHTML="Do not enter an invalid lastname"
+                }
+                else {
+                    document.getElementById("display").innerHTML=""
+                }
+            }
+            /*passed*/
+            function checkDOB() {
+                var dob = form.dob.value
+                var pattern = new RegExp("[0-9]{2}/[0-9]{2}/[0-9]{4}")
+                if (! pattern.test(dob)){
+                    document.getElementById("display").innerHTML="Do not enter an invalid date of birth"
+                }
+                else {
+                    document.getElementById("display").innerHTML=""
+                }
+            }
+            /*passed i think*/
+            function displayAllContent() {
+                var display_content = ""
+                var fname = form.firstname.value
+                var lname = form.lastname.value
+                var dob = form.dob.value
+                var dobstring = dob.toString()
+                var year = dobstring.substr(dobstring.length - 4)
+                var age = 2022-year
+                var cheese = form.cheese.value
+                var cities = form.city
+                var lived_cities = new Array()
+                for (let index = 0; index < cities.length; index++) {
+                    if (cities[index].checked) {
+                        lived_cities.push(cities[index].value)
+                        //displayContent += city[index].value + ' checked! '
+                    }
+                }
+                if (lived_cities.length == 0) {
+                    display_content = "Hello " + fname + " " + lname + ", you are " + age + " years old, your favourite cheese is " + cheese + ", and you've lived in no cities. "
+                }
+                else {
+                    display_content = "Hello " + fname + " " + lname + ", you are " + age + " years old, your favourite cheese is " + cheese + ", and you've lived in " + lived_cities + "."
+                }
+                document.getElementById("display").innerHTML = display_content
+            }
+            /*passed*/
+            function removeAllContent() {
+                document.getElementById("display").innerHTML = "all text removed. Please re-enter"
+            }
+            //function testprint() {
+            //    document.getElementById("display").innerHTML = "a" + " onmousedown"
+            //}
+        </script>
+    </body>
+</html>
