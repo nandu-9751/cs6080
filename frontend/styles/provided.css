@@ -1,0 +1,170 @@
+
+/* base styles, feel free to edit */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    height: 100%;
+    font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: auto;
+}
+footer {
+    text-align: center;
+}
+
+/* the grid for the main page */
+.webpage-grid {
+    display: grid;
+    grid-template-columns: 2fr 7fr;
+    grid-template-rows: 1fr 15fr;
+    height: 100%;
+    grid-template-areas: 
+    "header header header"
+    "sidebar main main"
+    "sidebar main main";
+}
+.webpage-grid > div {
+    padding: 1em;
+}
+
+/* styles in each parts of the grid */
+.header {
+    grid-area: header;
+    background: rgb(117, 203, 126);
+}
+.main {
+    grid-area: main;
+    background: rgb(237, 237, 233);
+    overflow: scroll;
+}
+.sidebar {
+    grid-area: sidebar;
+    background: rgb(198, 223, 196);
+    overflow: scroll;
+}
+
+/* styles of header components */
+/* welcome title */
+
+/* user title */
+
+/* user, and home icon */
+.user-center-home {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+/* invite user icon */
+.view-user-btn {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    border-color: #0a390b;
+    background-color: #b1cbb2;
+}
+
+/* style of auth functions */
+/* also includes input form style */
+/* some styles from https://www.w3schools.com/css/tryit.asp?filename=trycss_forms */
+.regi-title,
+.login-title {
+    text-align: center;
+    padding: 10px;
+}
+.regi-form,
+.login-form,
+.create-channel-form,
+.edit-profile-form {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 7px;
+    width: 75%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+.register{
+    display: none;
+}
+.switchBtLoginRegi {
+    text-align: center;
+}
+.switchBtLoginRegiBtn {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    text-decoration: underline;
+}
+.hide {
+    display: none;
+}
+input[type=text],
+input[type=password],
+input[type=email]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=button] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* channel's style */
+.channel-block {
+    background-color: rgb(196, 243, 227);
+}
+.channel-block:hover {
+    cursor: pointer;
+    color: #228f26;
+}
+.private-channel {
+    background-color: rgb(170, 195, 187);
+}
+.private-channel:hover {
+    cursor: pointer;
+    color: #228f26;
+}
+
+/* display user style */
+.user-block {
+    text-decoration: underline;
+}
+.user-block:hover {
+    cursor: pointer;
+    color: #228f26;
+}
+.profile-pic {
+    height: 40px;
+    width: auto;
+}
+
+/* message style */
+.chatbox {
+    border: 2px solid #dedede;
+    background-color: rgba(100, 170, 0, .1);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+}
+.chatbox:hover {
+    cursor: pointer;
+    background-color: rgba(59, 101, 1, 0.1);
+}

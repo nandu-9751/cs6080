@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Slackr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- You can add your styles and scripts here -->
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css" />
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script type="module" src="src/helpers.js"></script>
+  <script src="https://kit.fontawesome.com/0bf591654c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- This is an example app structure, you can modify this as much as you choose -->
+  <div class="webpage-grid">
+    <div class="header">
+      Welcome to Slackr! 
+      <span id="user-center" class="hide"><button class="user-center-home" id="user-center-btn"><i class="fa-solid fa-user"></i>
+      </button></span>
+      <span id="back-to-homepage" class="hide"><button class="user-center-home" id="homepage-btn"><i class="fa-solid fa-house"></i>
+       </button></span>
+    </div>
+    <div class="sidebar">
+      <div>
+        Channels 
+        <div>(the private channels have darker background)</div>
+        <span id="create-channel" class="hide"><button id="goto-create-channel-form" class="btn btn-secondary">Create channel</button></span>
+        <hr />
+        <div id="channels">
+          <div id="sidebar-welcome">
+            A series of channels will be displayed here after loggin in. 
+          </div>
+          <div id="channel-holder">
+
+          </div>
+          <div id="private-channel-holder">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <section id="login">
+        <div class="login-title">
+          You're not logged in. Log in here.
+        </div>
+        <div class="login-form">
+          E-mail:
+          <input type="email" id="login-email" name="login-email" placeholder="Enter your email"><br><br>
+          Password:
+          <input type="password" id="login-pwd" name="login-pwd" placeholder="Enter your password"><br><br>
+          <button class="btn btn-success" id="login-btn">Log in</button>
+        </div>
+        <div class="switchBtLoginRegi">
+          New? <button type="button" class="switchBtLoginRegiBtn" id="goToRegi">Register here.</button>  
+        </div>
+      </section>
+      <section id="register" class="hide">
+        <div class="regi-title">
+            Registration
+        </div>
+        <div class="regi-form">
+          E-mail: 
+          <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
+          Name: 
+          <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+          Password: 
+          <input type="password" id="pwd" name="pwd" placeholder="Enter your password"><br><br>
+          Re-enter your password: 
+          <input type="password" id="re-pwd" name="re-pwd" placeholder="Re-enter your password"><br><br>
+          <button class="btn btn-success" id="regi-btn">Register</button>
+        </div>
+        <div class="switchBtLoginRegi">
+          Back to <button class="switchBtLoginRegiBtn" id="goToLogin">login.</button>  
+        </div>
+      </section>
+      <section id="create-channel-section" class="hide">
+        <div class="create-channel-form">
+          Channel name:
+          <input type="text" id="channel-name" placeholder="name of your channel"><br><br>
+          Private or public:
+          <select id="channel-type">
+            <option name="private">Private</option>
+            <option name="public">Public</option>
+          </select><br><br>
+          Description:
+          <input type="text" id="channel-description" placeholder="description of your channel"><br><br>
+          <button class="btn btn-success" id="channel-create-btn">Create</button>
+          <button class="btn btn-secondary" id="cancel-create-channel-btn">Cancel</button>
+        </div>
+      </section>
+      <section id="channel-details" class="hide">
+        <div id="channel-info">
+
+        </div>
+        <div id="channel-msg">
+
+        </div>
+        <div id="view-users">
+
+        </div>
+        <hr />
+        <div id="update-channel-info">
+          Change channel's name:
+          <input type="text" id="change-channel-name" placeholder="name of your channel"><br>
+          Change channel's description:
+          <input type="text" id="change-channel-description" placeholder="description of your channel"><br>
+          <button class="btn btn-secondary" id="update-channel-info-btn">Update</button><hr>
+          <span id="invite-user"><button id="view-user-btn" class="btn btn-secondary">Invite a user</button></span><hr>
+        </div>
+        <div id="send-message-blk">
+          Enter your message:
+          <input type="text" id="send-msg" placeholder="message goes here"><br>
+          Upload a picture:
+          <input type="file" id="send-img" name="send-img">
+          <span id="send-message"><button class="btn btn-secondary" id="send-msg-btn">Send</button></span>
+        </div>
+        <div id="join" class="hide">
+          <button class="btn btn-secondary" id="join-btn">Join the channel now</button>
+        </div>
+        <div id="leave" class="hide">
+
+        </div>
+      </section>
+      <section id="user-center-page" class="hide">
+      </section>
+      <span id="update-user-detail" class="hide"><button id="update-user-detail-btn" class="btn btn-success">Click to update your profile</button></span>
+      <span id="cancel-update-profile" class="hide"><button id="cancel-update-profile-btn" class="btn btn-success">Cancel</button></span>
+      <section id="update-profile-page" class="hide">
+        <div class="edit-profile-form">
+            Edit name:
+            <input type="text" id="change-username" placeholder="your new username"><br>
+            Edit email:
+            <input type="email" id="change-email" placeholder="your new email address"><br>
+            Edit password:
+            <input type="password" id="change-password" placeholder="your new password"><br>
+            Edit bio:
+            <input type="text" id="change-bio" placeholder="your new bio"><br>
+            Edit profile picture:
+            <input type="file" id="change-img" name="change-img"><br>
+            <button class="btn btn-secondary" id="submit-new-user-detail-btn">Update</button>
+        </div>   
+      </section>
+      <section id="main-page" class="hide">
+        Hi you're in! Choose or createa channel to start chatting. 
+        <div><button id="logout-btn" class="btn btn-success">Log out</button></div>
+      </section>
+      <footer>
+        <p>&copy; Slackr</p>
+      </footer>
+    </div>
+  </div>
+  
+  <script type="module" src="src/main.js" defer></script>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+
+</html>

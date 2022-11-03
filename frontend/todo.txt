@@ -1,0 +1,120 @@
+Milestone check:
+2.1.1   check!
+2.1.2   check! 
+2.1.3   check!...? 
+
+2.2.1   style main page
+2.2.2   check!
+2.2.3   display check!, need style
+        edit check!
+        join
+        leave
+
+2.3.1    formatting
+2.3.2
+2.3.3
+2.3.4
+2.3.5
+2.3.6
+2.3.7
+
+2.4.1
+2.4.2   half-check!
+2.4.3   half-check
+
+2.5.1
+2.5.2
+
+2.6.1
+2.6.2
+
+2.7.1
+2.7.2
+
+
+
+Thursday:
+1   the button from regi to login  
+    done
+2   check if user login; use localStorage, but how to clear it? https://javascript.plainenglish.io/implementing-login-case-using-localstorage-and-sessionstorage-bfddce5d2198
+    done; however, after refresh all gone
+2.1 add more constraints in auth functions
+    1. password should be longer than 6
+       done
+2.2 when not logged in, user should not click profile button: it displays text like 'log in to review your profile':
+    done; i just disabled it completely lol
+    use localStorage
+3   read spec and plan layout
+    done
+4   think about making channels
+    done
+Fix:
+can still show main page even with invalid email/pwd --> fixed
+
+Friday:
+1   finish auth
+    done
+2   start coding channels
+    done! already strated!
+3   make channel names into clickable buttons, that after click can display messages
+    or add a button?
+    done! clickable text let's go
+3.1 if user didn't choose any channel, display welcome msg
+    done
+5   create channel
+    create form done, can be shown and hide ()
+    do 3 so that they are clickable
+    done!
+Fix:
+    channel name should appears after created
+    done!
+    each channel name should end with new line
+    done!
+    public or private is not really working
+    done!
+
+Saturday:
+1   channel-holder should have a scroll
+    done! but not as good... try to add it to channel-holder
+2   display channel messages
+    raw messages displaying; add scroll to it 
+    modify format
+    display the sender; write user functions then come back to this
+2   modify create time format, and display creater name rather than id
+2   planning user profile
+    why userID not in?? --> it's userId not userID
+    done, can display user profile in text
+    ? after register, user login then cannot see profile; the button become unclickable
+3   allow user to edit profile
+    works, but only image working and other data are not sent to backend
+    done! need to do img now
+4   after opening a channel, user get to see a channel's detail
+    messages can be returned and displayed now; however if user not in the channel, he/she should be allowed to join
+    how to give them the button to join
+Fix:
+    after logging in, user will see previous user info and i dont know how to fix it.. refresh will do the trick but...
+    scroll isn't really working no idea why-->it's working now
+
+Sunday:
+1   user can invite other user to channel (by userID? maybe)
+    now can console log user names;
+    make a window to display them, and need to make them clickable, which can add the user to this channel
+
+Monday:
+1   pop up window
+    done! i'm using another section instead, saves me time
+1   able to invite user to channel
+    done!
+1   code upload image
+    done!
+1   send messages
+    done!
+2   style chat (see w3cshool)
+2   user without uploading img will have a default profile picture
+    done! they have default amongus profile pic now
+3   user can edit chat
+    i've written the function but it's not working
+4   user can react to chat
+5   see what's left and try to code
+
+only the already existed users works, the newly registered users have weird bugs
